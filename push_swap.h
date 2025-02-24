@@ -17,6 +17,8 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <stdint.h>
+# include <stddef.h>
+# include <stdbool.h>
 
 typedef struct Node
 {
@@ -46,6 +48,9 @@ int		print_ptr(void *pointer);
 ////printf
 int		format_specifier(va_list arg, const char format);
 int		ft_printf(char *str, ...);
+//p_split
+void	free_matrix(char *av[]);
+char	**push_split(char *str, char separator);
 //push_swap
 void	deallocate(t_node **root);
 
