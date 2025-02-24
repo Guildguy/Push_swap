@@ -22,7 +22,13 @@
 
 typedef struct Node
 {
-	int			val;
+	int			n;
+	int			pos;
+	int			cost;
+	bool		shortest;
+	bool		upper_part;
+	struct Node	*target;
+	struct Node	*prev;
 	struct Node	*next;
 }				t_node;
 
