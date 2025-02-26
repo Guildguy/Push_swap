@@ -12,17 +12,16 @@
 
 #include "push_swap.h"
 
-void	deallocate(t_node **root)
+void	deallocate_node(t_node **stack)
 {
-	t_node	*curr;
 	t_node	*aux;
-
-	curr = *root;
-	while (curr != NULL)
+	
+	while (*stack)
 	{
-		aux = curr;
-		curr = curr->next;
+		aux = *stack;
+		*stack = aux->next;
 		free(aux);
 	}
-	*root = NULL;
+	*stack = NULL;
 }
+

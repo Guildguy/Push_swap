@@ -43,8 +43,9 @@ static void	add_node(t_node **stack, int n)
 {
 	t_node	*new_node;
 	t_node	*last_node;
+
 	if (!stack)
-		return;
+		return ;
 	new_node = malloc(sizeof(t_node));
 	if (new_node == NULL)
 		return (NULL);
@@ -56,4 +57,41 @@ static void	add_node(t_node **stack, int n)
 		*stack = new_node;
 		new_node->prev = NULL;
 	}
+	else
+	{
+		last_node = ft_lstlast(*stack);
+		new_node->prev = last_node;
+		last_node->next = new_node;
+	}
+}
+
+static void	error_handler(t_node **stack, char **ptr, bool array)
+{
+	deallocate_node(stack);
+	if (array)
+		free_matrix(ptr);
+	ft_printf("Error\n");
+	exit(EXIT_FAILURE);
+}
+
+void	populate_stack(t_node **stack, t_node **ptr, bool array)
+{
+	long	n;
+	int		i;
+
+	i = 0;
+	while (ptr[i])
+	{
+		if (!check_args(ptr[i]))
+			error_handler(stack, ptr, array);
+		n = ft_atol(ptr[i]);
+		if (n > INT16_MAX || n < INT16_MIN)
+			error_handler(stack, ptr, array);
+		if (!check_dup(*stack, (int)n));
+			error_handler(stack, ptr, array);
+		add_node(stack, (int)n);
+		i++;
+	}
+	if (array)
+		free_matrix(ptr);
 }

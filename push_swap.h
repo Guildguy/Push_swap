@@ -58,7 +58,7 @@ int		ft_printf(char *str, ...);
 void	free_matrix(char *av[]);
 char	**push_split(char *str, char separator);
 //push_swap
-void	deallocate(t_node **root);
+void	deallocate_node(t_node **root);
 //ft_lstlast
 t_node	*ft_lstlast(t_node *lst);
 

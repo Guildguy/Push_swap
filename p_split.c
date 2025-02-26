@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   p_split.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/25 18:01:04 by fleite-j          #+#    #+#             */
+/*   Updated: 2025/02/25 18:01:05 by fleite-j         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	free_matrix(char *av[])
@@ -5,11 +17,10 @@ void	free_matrix(char *av[])
 	int	i;
 
 	i = -1;
-	
 	if (av == NULL || *av == NULL)
-		return;
+		return ;
 	while (av[i])
-		free(av[i++]);
+		free (av[i++]);
 	free(av);
 }
 
@@ -83,7 +94,7 @@ char	**push_split(char *str, char separator)
 			if (vector_str[i] == NULL)
 				return (NULL);
 			vector_str[i++][0] = '\0';
-			continue;
+			continue ;
 		}
 		vector_str[i++] = get_next_word(str, separator);
 	}
