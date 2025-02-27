@@ -19,6 +19,7 @@
 # include <stdint.h>
 # include <stddef.h>
 # include <stdbool.h>
+# include <limits.h>
 
 typedef struct Node
 {
@@ -57,9 +58,15 @@ int		ft_printf(char *str, ...);
 //p_split
 void	free_matrix(char *av[]);
 char	**push_split(char *str, char separator);
-//push_swap
+//push_utils
 void	deallocate_node(t_node **root);
+bool	stack_done(t_node *stack);
+t_node	*find_smallest(t_node *stack);
+t_node	*find_largest(t_node *stack);
+t_node	*get_shortest(t_node *stack);
 //ft_lstlast
 t_node	*ft_lstlast(t_node *lst);
+//populate stack
+void	populate_stack(t_node **stack, t_node **ptr, bool array);
 
 #endif
