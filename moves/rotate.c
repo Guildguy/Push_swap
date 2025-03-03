@@ -30,4 +30,3 @@ void	rr(t_node **stack_a, t_node **stack_b)
 	rotate(stack_b);
 	ft_printf("rr\n");
 }
-
