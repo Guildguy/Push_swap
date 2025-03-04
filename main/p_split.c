@@ -12,18 +12,6 @@
 
 #include "../push_swap.h"
 
-void	free_matrix(char *av[])
-{
-	int	i;
-
-	i = -1;
-	if (av == NULL || *av == NULL)
-		return ;
-	while (av[i])
-		free (av[i++]);
-	free(av);
-}
-
 static int	count_word(char *str, char separator)
 {
 	int		i;
@@ -71,6 +59,18 @@ static char	*get_next_word(char *str, char separator)
 		next_str[i++] = str[cursor++];
 	next_str[i] = '\0';
 	return (next_str);
+}
+
+void	free_matrix(char *av[])
+{
+	int	i;
+
+	i = -1;
+	if (av == NULL || *av == NULL)
+		return ;
+	while (av[i])
+		free (av[i++]);
+	free(av);
 }
 
 char	**push_split(char *str, char separator)
