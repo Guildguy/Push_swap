@@ -36,17 +36,17 @@ typedef struct Node
 //libft
 int		ft_atol(const char *nptr);
 //printf
-////print_utils
+////utils_print
 int		ft_islower(int c);
 char	*ft_itoa(int n);
 char	*ft_uns_itoa(unsigned int n);
-////print_num
+////num_print
 int		print_int(int n);
 int		print_uns_int(unsigned int n);
 int		hex_len(unsigned int n);
 void	hex_write(unsigned int n, char format);
 int		print_hex(unsigned int n, char format);
-////print_char
+////char_print
 int		print_chr(char c);
 int		print_str(char *str);
 int		ptr_len(uintptr_t ptr);
@@ -80,7 +80,12 @@ void	ss(t_node **stack_a, t_node **stack_b);
 ////prep_a
 void	set_position(t_node *stack);
 void	prepare_a(t_node *stack_a, t_node *stack_b);
-////
+////prep_b
+void	prepare_b(t_node *stack_a, t_node *stack_b);
+////small_sort
+void	small_sort(t_node **stack);
+////full_sort
+void	full_sort(t_node **stack_a, t_node **stack_b);
 //main
 ////ft_lstlast
 t_node	*ft_lstlast(t_node *lst);
