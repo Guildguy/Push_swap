@@ -35,10 +35,13 @@ typedef struct Node
 
 //libft
 int		ft_atol(const char *nptr);
+
 //printf
 ////utils_print
 int		ft_islower(int c);
+int		ft_int_len(int n);
 char	*ft_itoa(int n);
+int		ft_uns_int_len(unsigned int n);
 char	*ft_uns_itoa(unsigned int n);
 ////num_print
 int		print_int(int n);
@@ -55,6 +58,7 @@ int		print_ptr(void *pointer);
 ////printf
 int		format_specifier(va_list arg, const char format);
 int		ft_printf(const char *str, ...);
+
 //moves
 ////moves_utils
 void	set_top_a(t_node **stack, t_node *top);
@@ -76,6 +80,7 @@ void	rr(t_node **stack_a, t_node **stack_b);
 void	sa(t_node **stack);
 void	sb(t_node **stack);
 void	ss(t_node **stack_a, t_node **stack_b);
+
 //sorter
 ////prep_a
 void	set_position(t_node *stack);
@@ -86,6 +91,7 @@ void	prepare_b(t_node *stack_a, t_node *stack_b);
 void	small_sort(t_node **stack);
 ////full_sort
 void	full_sort(t_node **stack_a, t_node **stack_b);
+
 //main
 ////ft_lstlast
 t_node	*ft_lstlast(t_node *lst);
@@ -100,9 +106,8 @@ bool	stack_done(t_node *stack);
 t_node	*find_smallest(t_node *stack);
 t_node	*find_largest(t_node *stack);
 t_node	*get_shortest(t_node *stack);
+
 //populate stack
 void	populate_stack(t_node **stack, char **ptr, bool array);
-////push_swap
-int		main(int ac, char *av[]);
 
 #endif

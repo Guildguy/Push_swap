@@ -43,7 +43,7 @@ int	ft_atol(const char *nptr)
 			sign = -1;
 		i++;
 	}
-	while (ft_isdigit(nptr[i]))
+	while (nptr[i] && (ft_isdigit(nptr[i])))
 	{
 		result = result * 10 + (nptr[i] - '0');
 		i++;

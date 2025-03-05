@@ -14,12 +14,12 @@
 
 int	print_int(int n)
 {
-	int		count;
 	int		i;
+	int		count;
 	char	*nbr;
 
-	count = 0;
 	i = 0;
+	count = 0;
 	nbr = ft_itoa(n);
 	while (nbr[i])
 		count += write(1, &nbr[i++], 1);
@@ -29,12 +29,12 @@ int	print_int(int n)
 
 int	print_uns_int(unsigned int n)
 {
-	int		count;
 	int		i;
+	int		count;
 	char	*nbr;
 
-	count = 0;
 	i = 0;
+	count = 0;
 	nbr = ft_uns_itoa(n);
 	while (nbr[i])
 		count += write(1, &nbr[i++], 1);
@@ -47,7 +47,7 @@ int	hex_len(unsigned int n)
 	int	len;
 
 	len = 0;
-	if (len == 0)
+	if (n == 0)
 		return (1);
 	while (n)
 	{
@@ -59,35 +59,36 @@ int	hex_len(unsigned int n)
 
 void	hex_write(unsigned int n, char format)
 {
-	char	c;
+	char	hex_val;
 	char	*hex;
 	char	*upper_hex;
 
+	hex_val = 0;
 	hex = "0123456789abcdef";
 	upper_hex = "0123456789ABCDEF";
-	if (n > 16)
+	if (n >= 16)
 	{
-		hex_write((n / 16), format);
-		hex_write((n % 16), format);
+		hex_write(n / 16, format);
+		hex_write(n % 16, format);
 	}
 	else
 	{
 		if (format == 'x')
 		{
-			c = hex[n];
-			write(1, &c, 1);
+			hex_val = hex[n];
+			write(1, &hex_val, 1);
 		}
 		else if (format == 'X')
 		{
-			c = upper_hex[n];
-			write(1, &c, 1);
+			hex_val = upper_hex[n];
+			write(1, &hex_val, 1);
 		}
 	}
 }
 
 int	print_hex(unsigned int n, char format)
 {
-	int		count;
+	int	count;
 
 	hex_write(n, format);
 	count = hex_len(n);

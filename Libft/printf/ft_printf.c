@@ -38,8 +38,8 @@ int	format_specifier(va_list arg, const char format)
 
 int	ft_printf(const char *str, ...)
 {
-	int		i;
 	int		count;
+	int		i;
 	va_list	arg;
 
 	if (!str)
@@ -49,7 +49,8 @@ int	ft_printf(const char *str, ...)
 	count = 0;
 	while (str[i])
 	{
-		if (str[i] == '%' && str[i + 1])
+		if (str[i] == '%' && (ft_islower(str[i + 1])
+				|| str[i + 1] == '%' || str[i + 1] == 'X'))
 		{
 			count += format_specifier(arg, str[i + 1]);
 			i++;

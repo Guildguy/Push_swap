@@ -72,11 +72,11 @@ void	ptr_write(uintptr_t ptr)
 
 int	print_ptr(void *pointer)
 {
-	int			count;
 	uintptr_t	ptr;
+	int			count;
 
-	count = 0;
 	ptr = (uintptr_t)pointer;
+	count = 0;
 	if (ptr == 0)
 	{
 		count += write(1, "(nil)", 5);
