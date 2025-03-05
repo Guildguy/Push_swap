@@ -1,30 +1,36 @@
 NAME = push_swap
 
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -I
+LIBFT = Libft/libft.a
+OBJ_DIR = obj/
+FILE_DIR = Files/
+MAIN = $(FILE_DIR)main/ft_lstlast.c $(FILE_DIR)main/ft_lstsize.c $(FILE_DIR)main/p_split.c $(FILE_DIR)main/populate_stack.c $(FILE_DIR)main/push_utils.c $(FILE_DIR)main/push_swap.c
+MOVE = $(FILE_DIR)moves/move_utils.c $(FILE_DIR)moves/push.c $(FILE_DIR)moves/reverse.c $(FILE_DIR)moves/rotate.c $(FILE_DIR)moves/swap.c
+SORTER = $(FILE_DIR)sorter/full_sort.c $(FILE_DIR)sorter/prep_a.c $(FILE_DIR)sorter/prep_b.c $(FILE_DIR)sorter/small_sort.c
 
-SRC = libft/ft_atol.c \
-printf/char_print.c printf/num_print.c printf/utils_print.c printf/ft_printf.c \
-moves/move_utils.c moves/push.c moves/reverse.c moves/rotate.c moves/swap.c \
-sorter/full_sort.c sorter/prep_a.c sorter/prep_b.c sorter/small_sort.c \
-main/ft_lstlast.c main/ft_lstsize.c main/p_split.c main/populate_stack.c main/push_utils.c main/push_swap.c
-
-
-OBJ = $(SRC:%.c=%.o)
+SRC = $(MAIN) $(MOVE) $(SORTER)
+OBJ = $(patsubst $(FILE_DIR)%.c, $(OBJ_DIR)%.o, $(SRC))
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+$(NAME): $(OBJ) $(LIBFT)
+	$(CC) $(FLAGS) push_swap.h $^ -o $@
 
-%.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
+$(LIBFT):
+	make -C ./Libft
+
+$(OBJ_DIR)%.o: $(FILE_DIR)%.c
+	mkdir -p $(@D)
+	$(CC) $(FLAGS) push_swap.h -c $< -o $@
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(OBJ_DIR)
+	make clean -C ./Libft
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf $(LIBFT)
 
 re: fclean all
 

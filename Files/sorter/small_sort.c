@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   small_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fleite-j <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 18:00:35 by fleite-j          #+#    #+#             */
-/*   Updated: 2025/02/25 18:00:38 by fleite-j         ###   ########.fr       */
+/*   Created: 2025/03/05 10:17:30 by fleite-j          #+#    #+#             */
+/*   Updated: 2025/03/05 10:17:32 by fleite-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-t_node	*ft_lstlast(t_node *lst)
+void	small_sort(t_node **stack)
 {
-	t_node	*list;
+	t_node	*largest;
 
-	if (!lst)
-		return (NULL);
-	list = lst;
-	while (list->next)
-		list = list->next;
-	return (list);
+	largest = find_largest(*stack);
+	if (largest == *stack)
+		ra(stack);
+	else if (largest == (*stack)->next)
+		rra(stack);
+	if ((*stack)->n > (*stack)->next->n)
+		sa(stack);
 }
