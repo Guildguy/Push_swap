@@ -87,15 +87,9 @@ void	hex_write(unsigned int n, char format)
 
 int	print_hex(unsigned int n, char format)
 {
-	int		i;
 	int		count;
-	char	*nbr;
 
-	count = 0;
-	i = 0;
-	nbr = ft_uns_itoa(n);
-	while ((nbr[i]))
-		count += write(1, &nbr[i++], 1);
-	free (nbr);
+	hex_write(n, format);
+	count = hex_len(n);
 	return (count);
 }

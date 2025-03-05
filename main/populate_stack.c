@@ -48,7 +48,7 @@ static void	add_node(t_node **stack, int n)
 		return ;
 	new_node = malloc(sizeof(t_node));
 	if (new_node == NULL)
-		return (NULL);
+		return ;
 	new_node->n = n;
 	new_node->next = NULL;
 	new_node->shortest = false;
@@ -74,7 +74,7 @@ static void	error_handler(t_node **stack, char **ptr, bool array)
 	exit(EXIT_FAILURE);
 }
 
-void	populate_stack(t_node **stack, t_node **ptr, bool array)
+void	populate_stack(t_node **stack, char **ptr, bool array)
 {
 	long	n;
 	int		i;
@@ -87,7 +87,7 @@ void	populate_stack(t_node **stack, t_node **ptr, bool array)
 		n = ft_atol(ptr[i]);
 		if (n > INT16_MAX || n < INT16_MIN)
 			error_handler(stack, ptr, array);
-		if (!check_dup(*stack, (int)n));
+		if (!check_dup(*stack, (int)n))
 			error_handler(stack, ptr, array);
 		add_node(stack, (int)n);
 		i++;

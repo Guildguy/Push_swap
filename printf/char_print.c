@@ -49,7 +49,7 @@ int	ptr_len(uintptr_t ptr)
 		ptr /= 16;
 		len++;
 	}
-	len++;
+	return (len);
 }
 
 void	ptr_write(uintptr_t ptr)

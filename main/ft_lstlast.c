@@ -16,7 +16,7 @@ t_node	*ft_lstlast(t_node *lst)
 {
 	t_node	*list;
 
-	if (!list)
+	if (!lst)
 		return (NULL);
 	list = lst;
 	while (list->next)

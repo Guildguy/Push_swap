@@ -54,7 +54,7 @@ void	ptr_write(uintptr_t ptr);
 int		print_ptr(void *pointer);
 ////printf
 int		format_specifier(va_list arg, const char format);
-int		ft_printf(char *str, ...);
+int		ft_printf(const char *str, ...);
 //moves
 ////moves_utils
 void	set_top_a(t_node **stack, t_node *top);
@@ -94,8 +94,6 @@ int		ft_lstsize(t_node *lst);
 ////p_split
 void	free_matrix(char *av[]);
 char	**push_split(char *str, char separator);
-////populate_stack
-void	populate_stack(t_node **stack, t_node **ptr, bool array);
 ////push_utils
 void	deallocate_node(t_node **root);
 bool	stack_done(t_node *stack);
@@ -103,6 +101,8 @@ t_node	*find_smallest(t_node *stack);
 t_node	*find_largest(t_node *stack);
 t_node	*get_shortest(t_node *stack);
 //populate stack
-void	populate_stack(t_node **stack, t_node **ptr, bool array);
+void	populate_stack(t_node **stack, char **ptr, bool array);
+////push_swap
+int		main(int ac, char *av[]);
 
 #endif

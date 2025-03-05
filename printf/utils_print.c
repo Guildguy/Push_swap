@@ -83,7 +83,7 @@ char	*ft_uns_itoa(unsigned int n)
 	char	*digit;
 	int		len;
 
-	len = ft_uns_num_len(n);
+	len = ft_uns_int_len(n);
 	digit = malloc((len + 1) * sizeof(char));
 	if (digit == NULL)
 		return (NULL);

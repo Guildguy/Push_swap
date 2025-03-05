@@ -30,7 +30,7 @@ int	format_specifier(va_list arg, const char format)
 	else if (format == 'x' || format == 'X')
 		count += print_hex(va_arg(arg, unsigned int), format);
 	else if (format == '%')
-		count += write(1, '%', 1);
+		count += write(1, "%", 1);
 	else
 		count += write(1, &format, 1);
 	return (count);

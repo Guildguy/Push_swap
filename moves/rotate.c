@@ -14,13 +14,13 @@ static void	rotate(t_node **stack)
 
 void	ra(t_node **stack)
 {
-	rotate(*stack);
+	rotate(stack);
 	ft_printf("ra\n");
 }
 
 void	rb(t_node **stack)
 {
-	rotate(*stack);
+	rotate(stack);
 	ft_printf("rb\n");
 }
 
