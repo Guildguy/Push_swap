@@ -40,14 +40,13 @@ static int	count_word(char *str, char separator)
 
 static char	*get_next_word(char *str, char separator)
 {
-	static int	cursor;
+	static int	cursor = 0;
 	char		*next_str;
 	int			len;
 	int			i;
 
 	i = 0;
 	len = 0;
-	cursor = 0;
 	while (str[cursor] == separator)
 		++cursor;
 	while ((str[cursor + len] != separator) && str[cursor + len])
@@ -55,7 +54,7 @@ static char	*get_next_word(char *str, char separator)
 	next_str = malloc((size_t)len * sizeof(char) + 1);
 	if (next_str == NULL)
 		return (NULL);
-	while (str[cursor] != separator && str[cursor])
+	while ((str[cursor] != separator) && str[cursor])
 		next_str[i++] = str[cursor++];
 	next_str[i] = '\0';
 	return (next_str);
@@ -81,7 +80,7 @@ char	**push_split(char *str, char separator)
 
 	i = 0;
 	word_nbr = count_word(str, separator);
-	if (word_nbr)
+	if (!word_nbr)
 		exit(1);
 	vector_str = malloc(sizeof(char *) * (size_t)(word_nbr + 2));
 	if (vector_str == NULL)

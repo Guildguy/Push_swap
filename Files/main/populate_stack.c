@@ -47,10 +47,10 @@ static void	add_node(t_node **stack, int n)
 	if (!stack)
 		return ;
 	new_node = malloc(sizeof(t_node));
-	if (new_node == NULL)
+	if (!new_node)
 		return ;
-	new_node->n = n;
 	new_node->next = NULL;
+	new_node->n = n;
 	new_node->shortest = false;
 	if (!(*stack))
 	{

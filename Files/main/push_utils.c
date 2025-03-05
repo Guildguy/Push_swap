@@ -22,7 +22,6 @@ void	deallocate_node(t_node **stack)
 		*stack = aux->next;
 		free(aux);
 	}
-	*stack = NULL;
 }
 
 bool	stack_done(t_node *stack)

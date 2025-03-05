@@ -22,7 +22,7 @@ static void	move_a(t_node **stack_a, t_node **stack_b)
 	else if (!(shortest->upper_part) && !(shortest->target->upper_part))
 		reverse_a_b(stack_a, stack_b, shortest);
 	set_top_a(stack_a, shortest);
-	set_top_b(stack_a, shortest->target);
+	set_top_b(stack_b, shortest->target);
 	pb(stack_a, stack_b);
 }
 
