@@ -24,6 +24,12 @@ $(OBJ_DIR)%.o: $(FILE_DIR)%.c
 	mkdir -p $(@D)
 	$(CC) $(FLAGS) push_swap.h -c $< -o $@
 
+test: $(NAME)
+	$(eval ARG = $(shell shuf -i 0-1000 -n 100))
+	./push_swap $(ARG) | ./checker_linux $(ARG)
+	@echo -n "Instructions: "
+	@./push_swap $(ARG) | wc -l
+
 clean:
 	rm -rf $(OBJ_DIR)
 	make clean -C ./Libft
