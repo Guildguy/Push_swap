@@ -12,27 +12,27 @@
 
 #include "../../push_swap.h"
 
-static void	push(t_node **stack_1, t_node **stack_2)
+static void	push(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*node;
 
-	if (!*stack_1)
+	if (!*stack_a)
 		return ;
-	node = *stack_1;
-	*stack_1 = (*stack_1)->next;
-	if (*stack_1)
-		(*stack_1)->prev = NULL;
+	node = *stack_a;
+	*stack_a = (*stack_a)->next;
+	if (*stack_a)
+		(*stack_a)->prev = NULL;
 	node->prev = NULL;
-	if (!*stack_2)
+	if (!*stack_b)
 	{
-		*stack_2 = node;
+		*stack_b = node;
 		node->next = NULL;
 	}
 	else
 	{
-		node->next = *stack_2;
+		node->next = *stack_b;
 		node->next->prev = node;
-		*stack_2 = node;
+		*stack_b = node;
 	}
 }
 
